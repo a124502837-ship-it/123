@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>勝春中藥房｜黑金漢方官網</title>
-  <meta name="description" content="勝春中藥房｜誠信・專業・用心。道地藥材、中藥材諮詢、養生茶飲，並提供科學中藥代理銷售；另有新市農會毛豆系列。"/>
+  <meta name="description" content="勝春中藥房｜百年誠信・專業・用心的漢方傳承。道地藥材、養生茶飲、用藥諮詢，另有新市農會毛豆系列。" />
 
   <style>
     :root{
@@ -16,79 +16,33 @@
       --text:#efefef;
       --muted:#cfcfcf;
       --line:rgba(201,162,77,.35);
-      --line2:rgba(201,162,77,.22);
-      --shadow: 0 22px 60px rgba(0,0,0,.55);
+      --line2:rgba(201,162,77,.18);
+      --shadow:0 22px 60px rgba(0,0,0,.55);
       --radius:16px;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family:"Noto Serif TC","Noto Sans TC",system-ui,sans-serif;
-      background: radial-gradient(1200px 800px at 50% -20%, rgba(201,162,77,.08), transparent 55%),
-                  radial-gradient(900px 600px at 12% 18%, rgba(201,162,77,.06), transparent 55%),
-                  radial-gradient(900px 700px at 88% 35%, rgba(201,162,77,.05), transparent 55%),
-                  var(--black);
+      background:
+        radial-gradient(1200px 800px at 50% -20%, rgba(201,162,77,.08), transparent 55%),
+        radial-gradient(900px 600px at 12% 18%, rgba(201,162,77,.06), transparent 55%),
+        radial-gradient(900px 700px at 88% 35%, rgba(201,162,77,.05), transparent 55%),
+        var(--black);
       color:var(--text);
       line-height:1.9;
       overflow-x:hidden;
     }
 
-    /* ---- Premium subtle film grain ---- */
+    /* subtle grain */
     .grain{
       position:fixed; inset:0; pointer-events:none; z-index:-1;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
       mix-blend-mode:overlay;
-      opacity:.18;
+      opacity:.16;
     }
-
-    /* ===== Nav ===== */
-    nav{
-      position:fixed; top:0; left:0; right:0;
-      background: linear-gradient(180deg, rgba(0,0,0,.92), rgba(0,0,0,.78));
-      border-bottom:1px solid var(--line);
-      z-index:1000;
-      backdrop-filter: blur(10px);
-    }
-    .nav-inner{
-      max-width:1180px;
-      margin:0 auto;
-      padding:14px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    nav ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:26px;
-    }
-    nav a{
-      color:var(--gold2);
-      text-decoration:none;
-      letter-spacing:2px;
-      font-size:.95rem;
-      position:relative;
-      padding:2px 0;
-      opacity:.92;
-      transition:opacity .2s ease, color .2s ease;
-    }
-    nav a::after{
-      content:"";
-      position:absolute;
-      left:0; bottom:-7px;
-      height:2px; width:0;
-      background:linear-gradient(90deg, transparent, var(--gold), transparent);
-      transition:width .25s ease;
-    }
-    nav a:hover{ color:var(--gold); opacity:1; }
-    nav a:hover::after{ width:100%; }
 
     /* ===== Hero ===== */
     header{
@@ -104,19 +58,7 @@
       background-size:cover;
       background-position:center;
     }
-    header::before{
-      /* premium gold frame glow */
-      content:"";
-      position:absolute; inset:-40px;
-      background:
-        radial-gradient(closest-side, rgba(201,162,77,.18), transparent 70%),
-        radial-gradient(closest-side, rgba(201,162,77,.10), transparent 70%);
-      filter:blur(18px);
-      opacity:.55;
-      pointer-events:none;
-    }
     header::after{
-      /* thin gold lines */
       content:"";
       position:absolute; left:0; right:0; bottom:0;
       height:1px;
@@ -124,31 +66,7 @@
       opacity:.9;
       pointer-events:none;
     }
-    .hero-inner{
-      max-width:980px;
-      margin:0 auto;
-      position:relative;
-      z-index:1;
-    }
-    .kicker{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      padding:8px 14px;
-      border:1px solid rgba(201,162,77,.35);
-      border-radius:999px;
-      color:var(--gold2);
-      letter-spacing:3px;
-      font-size:.86rem;
-      background:rgba(0,0,0,.28);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      margin-bottom:18px;
-    }
-    .kicker .dot{
-      width:6px; height:6px; border-radius:50%;
-      background:var(--gold);
-      box-shadow:0 0 18px rgba(201,162,77,.55);
-    }
+    .hero-inner{max-width:980px;margin:0 auto;position:relative;z-index:1}
     header h1{
       margin:0 0 18px;
       font-size:3.15rem;
@@ -161,6 +79,7 @@
       font-size:1.12rem;
       color:var(--gold2);
       opacity:.95;
+      letter-spacing:2px;
     }
     .cta{
       display:flex;
@@ -190,37 +109,20 @@
       box-shadow:0 18px 60px rgba(0,0,0,.45);
     }
 
-    /* ===== Layout ===== */
+    /* ===== Sections ===== */
     section{
       max-width:1100px;
       margin:auto;
-      padding:104px 18px;
-    }
-    .section-head{
-      text-align:center;
-      margin-bottom:56px;
-    }
-    h2{
-      margin:0;
-      color:var(--gold);
-      letter-spacing:8px;
-      font-size:1.9rem;
+      padding:96px 18px;
     }
     .subline{
-      margin:14px auto 0;
+      margin:0 auto 44px;
       max-width:820px;
       height:1px;
       background:linear-gradient(90deg, transparent, rgba(201,162,77,.40), transparent);
     }
-    .section-note{
-      margin:18px auto 0;
-      color:rgba(230,214,163,.92);
-      letter-spacing:4px;
-      font-size:1rem;
-      opacity:.95;
-    }
 
-    /* ===== About ===== */
+    /* ===== About (no title) ===== */
     .about-wrap{
       background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
       border:1px solid rgba(201,162,77,.14);
@@ -235,57 +137,45 @@
       color:#ddd;
       font-size:1.05rem;
     }
-    .about .tag{
-      margin-top:18px;
-      text-align:center;
-      color:var(--gold2);
-      letter-spacing:2px;
-      opacity:.95;
-    }
 
-    /* ===== Services (premium, no boxes) ===== */
+    /* ===== Services (no title) ===== */
+    .service-sub{
+      text-align:center;
+      color:rgba(230,214,163,.92);
+      letter-spacing:4px;
+      font-size:1rem;
+      margin:0 0 26px;
+    }
     .services{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap:42px;
+      grid-template-columns: repeat(4, minmax(220px, 1fr));
+      gap:34px;
       align-items:start;
     }
-
-    .service-item{
-      text-align:center;
-      padding:0;
+    @media (max-width: 1060px){
+      .services{ grid-template-columns: repeat(2, minmax(240px, 1fr)); }
     }
-    .badge{
-      display:inline-block;
-      padding:7px 12px;
-      border-radius:999px;
-      border:1px solid rgba(201,162,77,.35);
-      background:rgba(0,0,0,.22);
-      color:var(--gold2);
-      letter-spacing:2px;
-      font-size:.82rem;
-      margin-bottom:12px;
+    @media (max-width: 560px){
+      .services{ grid-template-columns: 1fr; }
     }
 
+    .service-item{ text-align:center; }
     .media{
       width:100%;
-      height:248px;
+      height:230px;
       object-fit:cover;
       display:block;
-      margin:0 0 18px;
+      margin:0 0 16px;
       border-radius:14px;
       box-shadow: 0 28px 70px rgba(0,0,0,.55);
       filter:saturate(1.02) contrast(1.06);
       transition: transform .25s ease, filter .25s ease;
     }
-    .service-item:hover .media{
-      transform: translateY(-4px);
-      filter:saturate(1.08) contrast(1.08);
-    }
+    .service-item:hover .media{ transform:translateY(-4px); filter:saturate(1.08) contrast(1.08); }
 
-    /* Consult uses pulse image as background (still no frame) */
+    /* 用藥諮詢：用把脈圖當「圖片」 */
     .bg-media{
-      height:248px;
+      height:230px;
       border-radius:14px;
       box-shadow: 0 28px 70px rgba(0,0,0,.55);
       background:
@@ -293,20 +183,17 @@
         url("https://upload.wikimedia.org/wikipedia/commons/7/7e/Traditional_Chinese_medicine_pulse_diagnosis.jpg");
       background-size:cover;
       background-position:center;
-      margin:0 0 18px;
+      margin:0 0 16px;
       transition: transform .25s ease, filter .25s ease;
       filter:contrast(1.06);
     }
-    .service-item:hover .bg-media{
-      transform: translateY(-4px);
-      filter:contrast(1.10);
-    }
+    .service-item:hover .bg-media{ transform:translateY(-4px); filter:contrast(1.10); }
 
     .service-item h3{
-      margin:12px 0 10px;
+      margin:10px 0 10px;
       color:var(--gold);
       letter-spacing:5px;
-      font-size:1.1rem;
+      font-size:1.08rem;
     }
     .service-item p{
       margin:0;
@@ -314,40 +201,92 @@
       font-size:.98rem;
     }
 
-    /* ===== Beans ===== */
+    /* 代理資訊：做成「可點擊的超連結入口」 */
+    .agent-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      border-radius:14px;
+      padding:0;
+    }
+    .agent-link .agent-cover{
+      height:230px;
+      border-radius:14px;
+      box-shadow: 0 28px 70px rgba(0,0,0,.55);
+      background:
+        radial-gradient(500px 240px at 50% 30%, rgba(201,162,77,.22), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.0));
+      border:1px solid rgba(201,162,77,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .agent-link .agent-cover::after{
+      content:"";
+      position:absolute; inset:-40px;
+      background: radial-gradient(closest-side, rgba(201,162,77,.18), transparent 70%);
+      filter:blur(18px);
+      opacity:.65;
+    }
+    .agent-link .agent-cover span{
+      position:relative;
+      z-index:1;
+      color:var(--gold2);
+      letter-spacing:4px;
+      font-size:1rem;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(201,162,77,.35);
+      background:rgba(0,0,0,.25);
+    }
+    .agent-link:hover .agent-cover{
+      border-color:rgba(201,162,77,.55);
+      transform:translateY(-4px);
+      transition:transform .25s ease, border-color .25s ease;
+    }
+    .agent-link small{
+      display:block;
+      margin-top:10px;
+      color:rgba(230,214,163,.90);
+      letter-spacing:2px;
+    }
+
+    /* ===== Beans (no title) ===== */
     .beans{
       background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
       border-top:1px solid var(--line2);
       border-bottom:1px solid var(--line2);
     }
-    .beans-grid{
-      max-width:920px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap:14px;
-    }
-    .bean{
-      padding:14px 14px;
-      text-align:center;
-      border-radius:999px;
-      border:1px solid rgba(201,162,77,.22);
-      background:rgba(0,0,0,.22);
+    .beans-row{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      flex-wrap:nowrap;
+      font-size:.9rem; /* 小一點 */
       color:#ddd;
-      letter-spacing:1px;
-      transition: transform .15s ease, border-color .15s ease, color .15s ease;
+      overflow:auto;
+      padding:6px 0;
+      scrollbar-width: thin;
     }
-    .bean:hover{
-      transform:translateY(-2px);
-      border-color:rgba(201,162,77,.55);
-      color:var(--gold2);
+    .beans-row span{
+      white-space:nowrap;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(201,162,77,.20);
+      background:rgba(0,0,0,.20);
+    }
+    @media (max-width: 650px){
+      .beans-row{ flex-wrap:wrap; } /* 手機允許換行，避免擠爆 */
     }
 
-    /* ===== Info (smaller & lower) ===== */
+    /* ===== Info (no title, small & lower) ===== */
     .info{
       font-size:.9rem;
       color:#cfcfcf;
-      padding-top:150px; /* 往下放一點 */
+      padding-top:140px;
     }
     .info-card{
       max-width:820px;
@@ -359,14 +298,8 @@
       box-shadow: var(--shadow);
       text-align:center;
     }
-    .info-card .meta{
-      color:#cfcfcf;
-      line-height:2.05;
-    }
-    .info-card .meta b{
-      color:var(--gold2);
-      font-weight:600;
-    }
+    .info-card .meta{ color:#cfcfcf; line-height:2.05; }
+    .info-card .meta b{ color:var(--gold2); font-weight:600; }
 
     iframe{
       width:100%;
@@ -386,16 +319,11 @@
       border-top:1px solid rgba(201,162,77,.22);
     }
 
-    /* avoid fixed nav overlap */
-    [id]{ scroll-margin-top: 92px; }
-
     @media (max-width:600px){
       header{ padding:185px 16px 135px; }
       header h1{ font-size:2.35rem; letter-spacing:7px; }
-      .kicker{ letter-spacing:2px; }
-      section{ padding:86px 16px; }
-      .info{ padding-top:120px; }
-      .media,.bg-media{ height:220px; }
+      section{ padding:84px 16px; }
+      .media,.bg-media,.agent-link .agent-cover{ height:220px; }
     }
   </style>
 </head>
@@ -403,107 +331,89 @@
 <body>
   <div class="grain" aria-hidden="true"></div>
 
-  <nav>
-    <div class="nav-inner">
-      <ul>
-        <li><a href="#about">關於勝春</a></li>
-        <li><a href="#service">服務項目</a></li>
-        <li><a href="#beans">新市農會毛豆</a></li>
-        <li><a href="#info">店家資訊</a></li>
-      </ul>
-    </div>
-  </nav>
-
   <header>
     <div class="hero-inner">
-      <div class="kicker"><span class="dot"></span>漢方傳承・黑金質感</div>
       <h1>勝春中藥房</h1>
-      <p>誠信・專業・用心的漢方傳承</p>
+      <p>百年誠信・專業・用心的漢方傳承</p>
 
       <div class="cta">
         <a class="btn" href="tel:065906735">📞 立即致電</a>
         <a class="btn" href="#info">📍 查看地圖</a>
-        <a class="btn" href="#service">✨ 服務一覽</a>
       </div>
     </div>
   </header>
 
-  <section id="about" class="about">
-    <div class="section-head">
-      <h2>關於勝春</h2>
-      <div class="subline"></div>
-    </div>
-
+  <!-- ABOUT (no headings) -->
+  <section class="about">
+    <div class="subline"></div>
     <div class="about-wrap">
       <p>
-        勝春中藥房，承載著歲月淬鍊的漢方智慧，以「誠信、專業、用心」為核心精神，長年深耕在地，守護每一位顧客的健康。
+        勝春中藥房，承載著百年歲月淬鍊的漢方智慧，以「誠信、專業、用心」為核心精神，長年深耕在地，守護每一位顧客的健康。
         嚴選道地藥材，來源清楚、品質把關嚴謹，從調理體質、日常保健到客製化配方，皆由經驗豐富的中藥師親自把關。
         勝春相信，中藥不只是治療，更是一種順應自然、平衡身心的生活哲學。
-        <br><br>
-        ｜新市農會毛豆｜勝昌、順天堂 各式科學中藥代理｜
       </p>
-      <div class="tag">以漢方之道，調和身心與日常</div>
     </div>
   </section>
 
+  <!-- SERVICES (no headings) -->
   <section id="service">
-    <div class="section-head">
-      <h2>服務項目</h2>
-      <div class="subline"></div>
-      <div class="section-note">科學中藥代理銷售</div>
-    </div>
+    <div class="subline"></div>
+    <div class="service-sub">科學中藥代理銷售</div>
 
     <div class="services">
+      <!-- 1 道地藥材 -->
       <div class="service-item">
-        <div class="badge">嚴選藥材</div>
-        <!-- 當歸（Wikimedia Commons，固定圖不會亂跑） -->
         <img class="media"
              src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Angelica_sinensis_dried_roots.jpg"
-             alt="中藥材示意：當歸乾燥根">
+             alt="中藥材示意：當歸乾燥根" />
         <h3>道地藥材</h3>
         <p>嚴選來源清楚之中藥材，品質穩定、用藥安心。</p>
       </div>
 
+      <!-- 2 養生茶飲 -->
       <div class="service-item">
-        <div class="badge">專業建議</div>
-        <!-- 中藥材諮詢：背景用把脈圖 -->
-        <div class="bg-media" role="img" aria-label="中醫把脈情境背景"></div>
-        <h3>中藥材諮詢</h3>
-        <p>協助了解藥材特性與使用方式，依需求提供合適建議。</p>
-      </div>
-
-      <div class="service-item">
-        <div class="badge">日常調養</div>
-        <!-- 黃耆（Wikimedia Commons，固定圖不會亂跑） -->
         <img class="media"
              src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Astragalus_membranaceus_roots.jpg"
-             alt="中藥材示意：黃耆根">
+             alt="中藥材示意：黃耆根" />
         <h3>養生茶飲</h3>
         <p>漢方溫潤好入口，適合日常保健與季節調理。</p>
       </div>
+
+      <!-- 3 用藥諮詢 -->
+      <div class="service-item">
+        <div class="bg-media" role="img" aria-label="中醫把脈情境背景"></div>
+        <h3>用藥諮詢</h3>
+        <p>協助了解藥材特性與使用方式，依需求提供合適建議。</p>
+      </div>
+
+      <!-- 4 代理資訊：超連結入口（你之後做 agents.html） -->
+      <div class="service-item">
+        <a class="agent-link" href="agents.html" aria-label="前往 各式科學中藥代理資訊（新頁面）">
+          <div class="agent-cover">
+            <span>點此進入</span>
+          </div>
+          <h3>各式科學中藥代理資訊</h3>
+          <small>（連到 agents.html，可自行新增頁面內容）</small>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section id="beans" class="beans">
-    <div class="section-head">
-      <h2>新市農會毛豆</h2>
-      <div class="subline"></div>
-    </div>
-
-    <div class="beans-grid">
-      <div class="bean">原味毛豆</div>
-      <div class="bean">毛豆香腸</div>
-      <div class="bean">茶豆</div>
-      <div class="bean">芥末毛豆</div>
-      <div class="bean">毛豆冰淇淋</div>
+  <!-- BEANS (no headings) -->
+  <section class="beans" id="beans">
+    <div class="subline"></div>
+    <div class="beans-row" aria-label="新市農會毛豆品項">
+      <span>原味毛豆</span>
+      <span>毛豆香腸</span>
+      <span>茶豆</span>
+      <span>芥末毛豆</span>
+      <span>毛豆冰淇淋</span>
     </div>
   </section>
 
+  <!-- INFO (no headings) -->
   <section id="info" class="info">
-    <div class="section-head">
-      <h2>店家資訊</h2>
-      <div class="subline"></div>
-    </div>
+    <div class="subline"></div>
 
     <div class="info-card">
       <div class="meta">
