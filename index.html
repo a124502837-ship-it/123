@@ -4,376 +4,515 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>勝春中藥房｜黑金漢方官網</title>
+  <meta name="description" content="勝春中藥房｜誠信・專業・用心。道地藥材、中藥材諮詢、養生茶飲，並提供科學中藥代理銷售；另有新市農會毛豆系列。"/>
 
   <style>
     :root{
-      --black:#0b0b0b;
-      --black-soft:#121212;
+      --black:#070707;
+      --black2:#0c0c0c;
+      --panel:#0f0f0f;
       --gold:#c9a24d;
-      --gold-soft:#e6d6a3;
-      --text:#eeeeee;
+      --gold2:#e6d6a3;
+      --text:#efefef;
       --muted:#cfcfcf;
       --line:rgba(201,162,77,.35);
-      --line2:rgba(201,162,77,.25);
+      --line2:rgba(201,162,77,.22);
+      --shadow: 0 22px 60px rgba(0,0,0,.55);
+      --radius:16px;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
       font-family:"Noto Serif TC","Noto Sans TC",system-ui,sans-serif;
-      background:var(--black);
+      background: radial-gradient(1200px 800px at 50% -20%, rgba(201,162,77,.08), transparent 55%),
+                  radial-gradient(900px 600px at 12% 18%, rgba(201,162,77,.06), transparent 55%),
+                  radial-gradient(900px 700px at 88% 35%, rgba(201,162,77,.05), transparent 55%),
+                  var(--black);
       color:var(--text);
       line-height:1.9;
+      overflow-x:hidden;
     }
 
-    /* subtle pattern */
-    .bg-pattern{
+    /* ---- Premium subtle film grain ---- */
+    .grain{
       position:fixed; inset:0; pointer-events:none; z-index:-1;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(201,162,77,.08), transparent 35%),
-        radial-gradient(circle at 80% 30%, rgba(201,162,77,.06), transparent 40%),
-        radial-gradient(circle at 50% 85%, rgba(201,162,77,.05), transparent 45%);
-      filter:saturate(110%);
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+      opacity:.18;
     }
 
     /* ===== Nav ===== */
     nav{
-      position:fixed; top:0; width:100%;
-      background:rgba(0,0,0,.9);
+      position:fixed; top:0; left:0; right:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.92), rgba(0,0,0,.78));
       border-bottom:1px solid var(--line);
       z-index:1000;
-      backdrop-filter:blur(8px);
+      backdrop-filter: blur(10px);
+    }
+    .nav-inner{
+      max-width:1180px;
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
     nav ul{
       list-style:none;
       margin:0;
-      padding:14px 20px;
+      padding:0;
       display:flex;
       justify-content:center;
       flex-wrap:wrap;
       gap:26px;
     }
     nav a{
-      color:var(--gold-soft);
+      color:var(--gold2);
       text-decoration:none;
       letter-spacing:2px;
       font-size:.95rem;
       position:relative;
       padding:2px 0;
+      opacity:.92;
+      transition:opacity .2s ease, color .2s ease;
     }
     nav a::after{
       content:"";
-      position:absolute; left:0; bottom:-6px;
+      position:absolute;
+      left:0; bottom:-7px;
       height:2px; width:0;
-      background:var(--gold);
+      background:linear-gradient(90deg, transparent, var(--gold), transparent);
       transition:width .25s ease;
     }
-    nav a:hover{color:var(--gold)}
-    nav a:hover::after{width:100%}
+    nav a:hover{ color:var(--gold); opacity:1; }
+    nav a:hover::after{ width:100%; }
 
     /* ===== Hero ===== */
     header{
+      position:relative;
+      padding:210px 18px 160px;
+      text-align:center;
+      border-bottom:1px solid var(--line2);
+      overflow:hidden;
       background:
-        linear-gradient(rgba(0,0,0,.66), rgba(0,0,0,.66)),
+        radial-gradient(700px 450px at 50% 35%, rgba(201,162,77,.18), transparent 55%),
+        linear-gradient(rgba(0,0,0,.64), rgba(0,0,0,.66)),
         url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/A_Bag_Chinese_herbal_drugs_and_Chinese_candies.jpg/1280px-A_Bag_Chinese_herbal_drugs_and_Chinese_candies.jpg");
       background-size:cover;
       background-position:center;
-      padding:210px 20px 150px;
-      text-align:center;
+    }
+    header::before{
+      /* premium gold frame glow */
+      content:"";
+      position:absolute; inset:-40px;
+      background:
+        radial-gradient(closest-side, rgba(201,162,77,.18), transparent 70%),
+        radial-gradient(closest-side, rgba(201,162,77,.10), transparent 70%);
+      filter:blur(18px);
+      opacity:.55;
+      pointer-events:none;
+    }
+    header::after{
+      /* thin gold lines */
+      content:"";
+      position:absolute; left:0; right:0; bottom:0;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(201,162,77,.55), transparent);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .hero-inner{
+      max-width:980px;
+      margin:0 auto;
       position:relative;
-      border-bottom:1px solid var(--line2);
+      z-index:1;
+    }
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:8px 14px;
+      border:1px solid rgba(201,162,77,.35);
+      border-radius:999px;
+      color:var(--gold2);
+      letter-spacing:3px;
+      font-size:.86rem;
+      background:rgba(0,0,0,.28);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      margin-bottom:18px;
+    }
+    .kicker .dot{
+      width:6px; height:6px; border-radius:50%;
+      background:var(--gold);
+      box-shadow:0 0 18px rgba(201,162,77,.55);
     }
     header h1{
-      font-size:3.1rem;
-      letter-spacing:10px;
-      margin:0 0 16px;
+      margin:0 0 18px;
+      font-size:3.15rem;
+      letter-spacing:12px;
       color:var(--gold);
-      text-shadow:0 10px 30px rgba(0,0,0,.45);
+      text-shadow:0 18px 50px rgba(0,0,0,.55);
     }
     header p{
-      margin:0 0 22px;
-      font-size:1.15rem;
-      color:var(--gold-soft);
+      margin:0 0 26px;
+      font-size:1.12rem;
+      color:var(--gold2);
+      opacity:.95;
     }
     .cta{
       display:flex;
       justify-content:center;
-      gap:14px;
+      gap:12px;
       flex-wrap:wrap;
-      margin-top:10px;
+      margin-top:8px;
     }
     .btn{
       display:inline-flex;
       align-items:center;
       gap:10px;
       padding:10px 16px;
-      border:1px solid rgba(201,162,77,.55);
-      color:var(--gold-soft);
+      border-radius:999px;
+      border:1px solid rgba(201,162,77,.45);
+      color:var(--gold2);
       text-decoration:none;
       letter-spacing:2px;
       font-size:.92rem;
-      background:linear-gradient(180deg, rgba(201,162,77,.10), rgba(0,0,0,.0));
-      transition:transform .15s ease, border-color .15s ease, color .15s ease;
+      background:linear-gradient(180deg, rgba(201,162,77,.12), rgba(0,0,0,0));
+      transition:transform .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
     }
     .btn:hover{
       transform:translateY(-1px);
-      border-color:rgba(201,162,77,.9);
+      border-color:rgba(201,162,77,.95);
       color:var(--gold);
+      box-shadow:0 18px 60px rgba(0,0,0,.45);
     }
 
+    /* ===== Layout ===== */
     section{
       max-width:1100px;
       margin:auto;
-      padding:100px 20px;
+      padding:104px 18px;
+    }
+    .section-head{
+      text-align:center;
+      margin-bottom:56px;
     }
     h2{
-      text-align:center;
+      margin:0;
       color:var(--gold);
-      letter-spacing:6px;
-      margin:0 0 60px;
+      letter-spacing:8px;
       font-size:1.9rem;
     }
-    .divider{
-      height:1px;
-      background:linear-gradient(90deg, transparent, rgba(201,162,77,.35), transparent);
-      margin:0 auto 60px;
+    .subline{
+      margin:14px auto 0;
       max-width:820px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(201,162,77,.40), transparent);
+    }
+    .section-note{
+      margin:18px auto 0;
+      color:rgba(230,214,163,.92);
+      letter-spacing:4px;
+      font-size:1rem;
+      opacity:.95;
     }
 
     /* ===== About ===== */
-    .about{
-      background:linear-gradient(180deg,#0b0b0b,#111);
-      border-top:1px solid var(--line2);
-      border-bottom:1px solid var(--line2);
+    .about-wrap{
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+      border:1px solid rgba(201,162,77,.14);
+      border-radius:var(--radius);
+      padding:34px 26px;
+      box-shadow: var(--shadow);
     }
     .about p{
-      max-width:860px;
+      max-width:900px;
       margin:0 auto;
       text-align:justify;
-      font-size:1.05rem;
       color:#ddd;
+      font-size:1.05rem;
     }
-    .about .tagline{
+    .about .tag{
       margin-top:18px;
       text-align:center;
-      color:rgba(230,214,163,.95);
+      color:var(--gold2);
       letter-spacing:2px;
+      opacity:.95;
     }
 
-    /* ===== Services ===== */
+    /* ===== Services (premium, no boxes) ===== */
     .services{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:36px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:42px;
+      align-items:start;
     }
-    .card{
-      background:var(--black-soft);
-      border:1px solid rgba(201,162,77,.4);
-      padding:26px;
+
+    .service-item{
       text-align:center;
-      position:relative;
-      overflow:hidden;
+      padding:0;
     }
+    .badge{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid rgba(201,162,77,.35);
+      background:rgba(0,0,0,.22);
+      color:var(--gold2);
+      letter-spacing:2px;
+      font-size:.82rem;
+      margin-bottom:12px;
+    }
+
     .media{
       width:100%;
-      height:220px;
+      height:248px;
       object-fit:cover;
       display:block;
-      margin-bottom:18px;
-      border:1px solid var(--line2);
+      margin:0 0 18px;
+      border-radius:14px;
+      box-shadow: 0 28px 70px rgba(0,0,0,.55);
+      filter:saturate(1.02) contrast(1.06);
+      transition: transform .25s ease, filter .25s ease;
     }
-    .card h3{
-      color:var(--gold-soft);
-      letter-spacing:3px;
-      margin:10px 0 10px;
-      font-size:1.05rem;
+    .service-item:hover .media{
+      transform: translateY(-4px);
+      filter:saturate(1.08) contrast(1.08);
     }
-    .card p{
+
+    /* Consult uses pulse image as background (still no frame) */
+    .bg-media{
+      height:248px;
+      border-radius:14px;
+      box-shadow: 0 28px 70px rgba(0,0,0,.55);
+      background:
+        linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.62)),
+        url("https://upload.wikimedia.org/wikipedia/commons/7/7e/Traditional_Chinese_medicine_pulse_diagnosis.jpg");
+      background-size:cover;
+      background-position:center;
+      margin:0 0 18px;
+      transition: transform .25s ease, filter .25s ease;
+      filter:contrast(1.06);
+    }
+    .service-item:hover .bg-media{
+      transform: translateY(-4px);
+      filter:contrast(1.10);
+    }
+
+    .service-item h3{
+      margin:12px 0 10px;
+      color:var(--gold);
+      letter-spacing:5px;
+      font-size:1.1rem;
+    }
+    .service-item p{
       margin:0;
       color:var(--muted);
       font-size:.98rem;
     }
-    .badge{
-      display:inline-block;
-      border:1px solid rgba(201,162,77,.5);
-      color:var(--gold);
-      padding:6px 10px;
-      font-size:.82rem;
-      letter-spacing:2px;
-      margin-bottom:10px;
-    }
-
-    /* 用藥諮詢：背景用把脈圖片 */
-    .card.consult{ padding-top:0; }
-    .card.consult .bg{
-      height:220px;
-      background:
-        linear-gradient(rgba(0,0,0,.68), rgba(0,0,0,.68)),
-        url("https://upload.wikimedia.org/wikipedia/commons/7/7e/Traditional_Chinese_medicine_pulse_diagnosis.jpg");
-      background-size:cover;
-      background-position:center;
-      border:1px solid var(--line2);
-      margin-bottom:18px;
-    }
 
     /* ===== Beans ===== */
     .beans{
-      background:#0f0f0f;
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
       border-top:1px solid var(--line2);
       border-bottom:1px solid var(--line2);
     }
     .beans-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:18px;
       max-width:920px;
       margin:0 auto;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap:14px;
     }
-    .bean-item{
-      border:1px solid rgba(201,162,77,.28);
-      background:rgba(255,255,255,.03);
-      padding:14px 16px;
-      letter-spacing:1px;
-      color:#ddd;
+    .bean{
+      padding:14px 14px;
       text-align:center;
+      border-radius:999px;
+      border:1px solid rgba(201,162,77,.22);
+      background:rgba(0,0,0,.22);
+      color:#ddd;
+      letter-spacing:1px;
+      transition: transform .15s ease, border-color .15s ease, color .15s ease;
     }
-    .bean-item strong{ color:var(--gold-soft); letter-spacing:2px; }
+    .bean:hover{
+      transform:translateY(-2px);
+      border-color:rgba(201,162,77,.55);
+      color:var(--gold2);
+    }
 
     /* ===== Info (smaller & lower) ===== */
     .info{
       font-size:.9rem;
       color:#cfcfcf;
-      padding-top:150px; /* 往下放 */
+      padding-top:150px; /* 往下放一點 */
     }
-    .info p{
-      text-align:center;
-      max-width:720px;
+    .info-card{
+      max-width:820px;
       margin:0 auto;
-      color:#cfcfcf;
+      padding:26px 18px;
+      border-radius:var(--radius);
+      border:1px solid rgba(201,162,77,.14);
+      background:rgba(255,255,255,.02);
+      box-shadow: var(--shadow);
+      text-align:center;
     }
+    .info-card .meta{
+      color:#cfcfcf;
+      line-height:2.05;
+    }
+    .info-card .meta b{
+      color:var(--gold2);
+      font-weight:600;
+    }
+
     iframe{
       width:100%;
-      height:360px;
+      height:380px;
       border:0;
       margin-top:44px;
+      border-radius:var(--radius);
+      box-shadow: 0 22px 70px rgba(0,0,0,.55);
       filter:grayscale(10%) contrast(105%);
     }
 
     footer{
       text-align:center;
-      padding:30px;
+      padding:34px 18px;
       font-size:.85rem;
-      color:#777;
-      border-top:1px solid rgba(201,162,77,.3);
+      color:#7a7a7a;
+      border-top:1px solid rgba(201,162,77,.22);
     }
 
-    /* prevent fixed nav overlap */
-    [id]{ scroll-margin-top: 90px; }
+    /* avoid fixed nav overlap */
+    [id]{ scroll-margin-top: 92px; }
 
     @media (max-width:600px){
-      header{ padding:180px 16px 120px; }
-      header h1{ font-size:2.4rem; letter-spacing:6px; }
-      nav ul{ gap:18px; }
+      header{ padding:185px 16px 135px; }
+      header h1{ font-size:2.35rem; letter-spacing:7px; }
+      .kicker{ letter-spacing:2px; }
       section{ padding:86px 16px; }
       .info{ padding-top:120px; }
+      .media,.bg-media{ height:220px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="bg-pattern" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <nav>
-    <ul>
-      <li><a href="#about">關於勝春</a></li>
-      <li><a href="#service">服務項目</a></li>
-      <li><a href="#beans">新市農會毛豆</a></li>
-      <li><a href="#info">店家資訊</a></li>
-    </ul>
+    <div class="nav-inner">
+      <ul>
+        <li><a href="#about">關於勝春</a></li>
+        <li><a href="#service">服務項目</a></li>
+        <li><a href="#beans">新市農會毛豆</a></li>
+        <li><a href="#info">店家資訊</a></li>
+      </ul>
+    </div>
   </nav>
 
   <header>
-    <h1>勝春中藥房</h1>
-    <p>誠信・專業・用心的漢方傳承</p>
+    <div class="hero-inner">
+      <div class="kicker"><span class="dot"></span>漢方傳承・黑金質感</div>
+      <h1>勝春中藥房</h1>
+      <p>誠信・專業・用心的漢方傳承</p>
 
-    <div class="cta">
-      <a class="btn" href="tel:065906735">📞 立即致電</a>
-      <a class="btn" href="#info">📍 查看地圖</a>
-      <a class="btn" href="#service">✨ 服務一覽</a>
+      <div class="cta">
+        <a class="btn" href="tel:065906735">📞 立即致電</a>
+        <a class="btn" href="#info">📍 查看地圖</a>
+        <a class="btn" href="#service">✨ 服務一覽</a>
+      </div>
     </div>
   </header>
 
   <section id="about" class="about">
-    <h2>關於勝春</h2>
-    <div class="divider"></div>
-    <p>
-      勝春中藥房，承載著歲月淬鍊的漢方智慧，以「誠信、專業、用心」為核心精神，長年深耕在地，守護每一位顧客的健康。
-      嚴選道地藥材，來源清楚、品質把關嚴謹，從調理體質、日常保健到客製化配方，皆由經驗豐富的中藥師親自把關。
-      勝春相信，中藥不只是治療，更是一種順應自然、平衡身心的生活哲學。
-      <br><br>
-      ｜新市農會毛豆｜勝昌、順天堂 各式科學中藥代理｜
-    </p>
-    <p class="tagline">以漢方之道，調和身心與日常</p>
+    <div class="section-head">
+      <h2>關於勝春</h2>
+      <div class="subline"></div>
+    </div>
+
+    <div class="about-wrap">
+      <p>
+        勝春中藥房，承載著歲月淬鍊的漢方智慧，以「誠信、專業、用心」為核心精神，長年深耕在地，守護每一位顧客的健康。
+        嚴選道地藥材，來源清楚、品質把關嚴謹，從調理體質、日常保健到客製化配方，皆由經驗豐富的中藥師親自把關。
+        勝春相信，中藥不只是治療，更是一種順應自然、平衡身心的生活哲學。
+        <br><br>
+        ｜新市農會毛豆｜勝昌、順天堂 各式科學中藥代理｜
+      </p>
+      <div class="tag">以漢方之道，調和身心與日常</div>
+    </div>
   </section>
 
   <section id="service">
-    <h2>服務項目</h2>
-    <div class="divider"></div>
+    <div class="section-head">
+      <h2>服務項目</h2>
+      <div class="subline"></div>
+      <div class="section-note">科學中藥代理銷售</div>
+    </div>
 
     <div class="services">
-      <div class="card">
+      <div class="service-item">
         <div class="badge">嚴選藥材</div>
-        <!-- 圖片：當歸（Wikimedia Commons） -->
+        <!-- 當歸（Wikimedia Commons，固定圖不會亂跑） -->
         <img class="media"
              src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Angelica_sinensis_dried_roots.jpg"
-             alt="中藥材示意：當歸乾燥根" />
+             alt="中藥材示意：當歸乾燥根">
         <h3>道地藥材</h3>
         <p>嚴選來源清楚之中藥材，品質穩定、用藥安心。</p>
       </div>
 
-      <div class="card">
-        <div class="badge">日常調養</div>
-        <!-- 圖片：黃耆（Wikimedia Commons） -->
-        <img class="media"
-             src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Astragalus_membranaceus_roots.jpg"
-             alt="中藥材示意：黃耆根" />
-        <h3>養生茶飲</h3>
-        <p>漢方溫潤好入口，適合日常保健與季節調理。</p>
+      <div class="service-item">
+        <div class="badge">專業建議</div>
+        <!-- 中藥材諮詢：背景用把脈圖 -->
+        <div class="bg-media" role="img" aria-label="中醫把脈情境背景"></div>
+        <h3>中藥材諮詢</h3>
+        <p>協助了解藥材特性與使用方式，依需求提供合適建議。</p>
       </div>
 
-      <div class="card consult">
-        <div class="badge">專業建議</div>
-        <!-- 用藥諮詢：背景用把脈圖片（Wikimedia Commons） -->
-        <div class="bg" role="img" aria-label="中醫把脈情境背景"></div>
-        <h3>用藥諮詢</h3>
-        <p>協助了解藥材特性與使用方式，依需求提供合適建議。</p>
+      <div class="service-item">
+        <div class="badge">日常調養</div>
+        <!-- 黃耆（Wikimedia Commons，固定圖不會亂跑） -->
+        <img class="media"
+             src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Astragalus_membranaceus_roots.jpg"
+             alt="中藥材示意：黃耆根">
+        <h3>養生茶飲</h3>
+        <p>漢方溫潤好入口，適合日常保健與季節調理。</p>
       </div>
     </div>
   </section>
 
   <section id="beans" class="beans">
-    <h2>新市農會毛豆</h2>
-    <div class="divider"></div>
+    <div class="section-head">
+      <h2>新市農會毛豆</h2>
+      <div class="subline"></div>
+    </div>
 
     <div class="beans-grid">
-      <div class="bean-item"><strong>原味毛豆</strong></div>
-      <div class="bean-item"><strong>毛豆香腸</strong></div>
-      <div class="bean-item"><strong>茶豆</strong></div>
-      <div class="bean-item"><strong>芥末毛豆</strong></div>
-      <div class="bean-item"><strong>毛豆冰淇淋</strong></div>
+      <div class="bean">原味毛豆</div>
+      <div class="bean">毛豆香腸</div>
+      <div class="bean">茶豆</div>
+      <div class="bean">芥末毛豆</div>
+      <div class="bean">毛豆冰淇淋</div>
     </div>
   </section>
 
   <section id="info" class="info">
-    <h2>店家資訊</h2>
-    <div class="divider"></div>
+    <div class="section-head">
+      <h2>店家資訊</h2>
+      <div class="subline"></div>
+    </div>
 
-    <p>
-      營業時間｜每日 07:30－19:00<br>
-      週日下午／週一公休<br><br>
-      地址｜台南市新化區中正路369巷42號之1<br>
-      電話｜06-590-6735
-    </p>
+    <div class="info-card">
+      <div class="meta">
+        <b>營業時間</b>｜每日 07:30－19:00<br>
+        週日下午／週一公休<br><br>
+        <b>地址</b>｜台南市新化區中正路369巷42號之1<br>
+        <b>電話</b>｜06-590-6735
+      </div>
+    </div>
 
     <iframe
       src="https://www.google.com/maps?q=台南市新化區中正路369巷42號之1&output=embed"
@@ -387,3 +526,4 @@
   </footer>
 </body>
 </html>
+
