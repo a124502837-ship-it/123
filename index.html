@@ -1,98 +1,159 @@
 <!DOCTYPE html>
-gap: 30px;
-}
-.card {
-background: #fff;
-padding: 30px;
-border-radius: 14px;
-box-shadow: 0 10px 30px rgba(0,0,0,.08);
-}
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>勝春中藥房｜百年傳承・現代養生</title>
 
+  <style>
+    :root {
+      --main: #2f5d50;
+      --sub: #e8f1ed;
+      --text: #2b2b2b;
+    }
 
-footer {
-background: var(--main);
-color: #fff;
-text-align: center;
-padding: 40px 20px;
-}
-footer p { margin: 6px 0; }
+    * { box-sizing: border-box; }
 
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans TC", sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-@media (max-width: 600px) {
-header h1 { font-size: 2.2rem; }
-}
-</style>
+    header {
+      background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+      url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b");
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 120px 20px;
+      text-align: center;
+    }
+
+    header h1 { font-size: 3rem; margin-bottom: 10px; }
+
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 12px 0;
+      margin: 0;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--main);
+      font-weight: 600;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    section:nth-child(even) { background: var(--sub); }
+
+    h2 {
+      text-align: center;
+      color: var(--main);
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    footer {
+      background: var(--main);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+  </style>
 </head>
+
 <body>
 
-
 <header>
-<h1>勝春中藥房</h1>
-<p>百年傳承 · 現代養生 · 專業中藥調理</p>
+  <h1>勝春中藥房</h1>
+  <p>百年傳承 · 現代養生 · 專業中藥調理</p>
 </header>
 
-
 <nav>
-<ul>
-<li><a href="#about">關於勝春</a></li>
-<li><a href="#service">服務項目</a></li>
-<li><a href="#info">店家資訊</a></li>
-</ul>
+  <ul>
+    <li><a href="#about">關於勝春</a></li>
+    <li><a href="#service">服務項目</a></li>
+    <li><a href="#info">店家資訊</a></li>
+  </ul>
 </nav>
 
-
 <section id="about">
-<h2>關於勝春</h2>
-<p style="max-width:800px;margin:auto;text-align:center;">
-勝春中藥房位於台南新化，是深耕在地多年的中藥老店，秉持「用藥安心、調理到位」的理念，
-提供專業中藥材與體質調理建議，結合傳統智慧與現代養生觀念，陪伴無數家庭走過四季健康。
-</p>
+  <h2>關於勝春</h2>
+  <p style="text-align:center;max-width:800px;margin:auto;">
+    勝春中藥房位於台南新化，深耕在地多年，秉持「用藥安心、調理到位」的理念，
+    結合傳統中藥智慧與現代養生觀念，陪伴顧客走過四季健康。
+  </p>
 </section>
-
 
 <section id="service">
-<h2>服務項目</h2>
-<div class="grid">
-<div class="card">
-<h3>中藥材調配</h3>
-<p>依個人體質、季節變化與生活型態，提供專業中藥配方建議。</p>
-</div>
-<div class="card">
-<h3>養生茶飲</h3>
-<p>將傳統藥材轉化為日常可飲用的溫和茶飲，養生也能很輕鬆。</p>
-</div>
-<div class="card">
-<h3>健康諮詢</h3>
-<p>親切說明中藥特性與使用方式，協助顧客建立正確養生觀念。</p>
-</div>
-</div>
+  <h2>服務項目</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>中藥材調配</h3>
+      <p>依體質與季節變化，提供專業中藥配方建議。</p>
+    </div>
+    <div class="card">
+      <h3>養生茶飲</h3>
+      <p>將中藥轉化為日常可飲用的溫和茶飲。</p>
+    </div>
+    <div class="card">
+      <h3>健康諮詢</h3>
+      <p>親切解說藥材特性，建立正確養生觀念。</p>
+    </div>
+  </div>
 </section>
-
 
 <section id="info">
-<h2>店家資訊</h2>
-<div class="grid">
-<div class="card">
-<h3>地址</h3>
-<p>台南市新化區中正路369巷42號之1</p>
-</div>
-<div class="card">
-<h3>電話</h3>
-<p>06‑590‑6735</p>
-</div>
-<div class="card">
-<h3>營業時間</h3>
-<p>實際時間請來電洽詢</p>
-</div>
-</div>
+  <h2>店家資訊</h2>
+  <div class="grid">
+    <div class="card">
+      <strong>地址</strong><br>
+      台南市新化區中正路369巷42號之1
+    </div>
+    <div class="card">
+      <strong>電話</strong><br>
+      06-590-6735
+    </div>
+    <div class="card">
+      <strong>營業時間</strong><br>
+      請來電洽詢
+    </div>
+  </div>
 </section>
 
-
 <footer>
-<p>© 勝春中藥房 Sheng Chun Herbal Medicine</p>
-<p>傳承中藥文化 · 守護日常健康</p>
+  © 勝春中藥房 Sheng Chun Herbal Medicine
 </footer>
-
 
 </body>
 </html>
