@@ -8,7 +8,8 @@
   <style>
     :root {
       --main: #2f5d50;
-      --sub: #e8f1ed;
+      --sub: #eef4f1;
+      --accent: #c6a25a;
       --text: #2b2b2b;
     }
 
@@ -18,76 +19,144 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans TC", sans-serif;
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.8;
+      background: #fafafa;
     }
 
     header {
-      background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-      url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b");
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url("https://images.unsplash.com/photo-1615485925873-0c6f3c9c5e87");
       background-size: cover;
       background-position: center;
       color: #fff;
-      padding: 120px 20px;
+      padding: 140px 20px;
       text-align: center;
     }
 
-    header h1 { font-size: 3rem; margin-bottom: 10px; }
+    header h1 {
+      font-size: 3rem;
+      letter-spacing: 6px;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: .95;
+    }
 
     nav {
       background: #fff;
       border-bottom: 1px solid #eee;
       position: sticky;
       top: 0;
+      z-index: 10;
     }
 
     nav ul {
       display: flex;
       justify-content: center;
       list-style: none;
-      padding: 12px 0;
+      padding: 14px 0;
       margin: 0;
-      gap: 30px;
+      gap: 32px;
     }
 
     nav a {
       text-decoration: none;
       color: var(--main);
       font-weight: 600;
+      position: relative;
     }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: .3s;
+    }
+
+    nav a:hover::after { width: 100%; }
 
     section {
       max-width: 1100px;
       margin: auto;
-      padding: 80px 20px;
+      padding: 90px 20px;
     }
 
-    section:nth-child(even) { background: var(--sub); }
+    section:nth-of-type(even) { background: var(--sub); }
 
     h2 {
       text-align: center;
       color: var(--main);
-      font-size: 2.2rem;
-      margin-bottom: 40px;
+      font-size: 2.3rem;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "❖";
+      display: block;
+      margin-top: 10px;
+      color: var(--accent);
+      font-size: 1.2rem;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+      gap: 32px;
     }
 
     .card {
       background: #fff;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      padding: 36px 30px;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+      text-align: center;
+    }
+
+    .card h3 {
+      color: var(--main);
+      margin-bottom: 10px;
+    }
+
+    .herb {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .about-text {
+      max-width: 860px;
+      margin: auto;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 380px;
+      border: none;
+      border-radius: 18px;
     }
 
     footer {
       background: var(--main);
       color: #fff;
       text-align: center;
-      padding: 40px 20px;
+      padding: 50px 20px;
+      margin-top: 80px;
+    }
+
+    footer p { margin: 8px 0; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.3rem; }
     }
   </style>
 </head>
@@ -109,26 +178,28 @@
 
 <section id="about">
   <h2>關於勝春</h2>
-  <p style="text-align:center;max-width:800px;margin:auto;">
-    勝春中藥房位於台南新化，深耕在地多年，秉持「用藥安心、調理到位」的理念，
-    結合傳統中藥智慧與現代養生觀念，陪伴顧客走過四季健康。
-  </p>
+  <div class="about-text">
+    勝春中藥房，承載著歲月淬鍊的漢方智慧，以「誠信、專業、用心」為核心精神，長年深耕在地，守護每一位顧客的健康。嚴選道地藥材，來源清楚、品質把關嚴謹，從調理體質、日常保健到客製化配方，皆由經驗豐富的中藥師親自把關。勝春相信，中藥不只是治療，更是一種順應自然、平衡身心的生活哲學。在這裡，每一帖藥都蘊含著對人體的理解與關懷，讓傳統中醫藥在現代生活中，依然溫潤而踏實地發揮力量。
+  </div>
 </section>
 
 <section id="service">
   <h2>服務項目</h2>
   <div class="grid">
     <div class="card">
+      <div class="herb">🌿</div>
       <h3>中藥材調配</h3>
-      <p>依體質與季節變化，提供專業中藥配方建議。</p>
+      <p>依體質、季節與生活型態，提供專業漢方配伍建議。</p>
     </div>
     <div class="card">
+      <div class="herb">🍵</div>
       <h3>養生茶飲</h3>
-      <p>將中藥轉化為日常可飲用的溫和茶飲。</p>
+      <p>將中藥轉化為日常溫潤茶飲，輕鬆融入生活。</p>
     </div>
     <div class="card">
+      <div class="herb">🩺</div>
       <h3>健康諮詢</h3>
-      <p>親切解說藥材特性，建立正確養生觀念。</p>
+      <p>親切說明藥性與使用方式，建立正確養生觀念。</p>
     </div>
   </div>
 </section>
@@ -137,22 +208,33 @@
   <h2>店家資訊</h2>
   <div class="grid">
     <div class="card">
-      <strong>地址</strong><br>
-      台南市新化區中正路369巷42號之1
+      <h3>地址</h3>
+      <p>台南市新化區中正路369巷42號之1</p>
     </div>
     <div class="card">
-      <strong>電話</strong><br>
-      06-590-6735
+      <h3>電話</h3>
+      <p>06-590-6735</p>
     </div>
     <div class="card">
-      <strong>營業時間</strong><br>
-      請來電洽詢
+      <h3>營業時間</h3>
+      <p>
+        每日 07:30 – 19:00<br>
+        週日下午、週一公休
+      </p>
     </div>
+  </div>
+
+  <div style="margin-top:60px;">
+    <iframe
+      src="https://www.google.com/maps?q=台南市新化區中正路369巷42號之1&output=embed"
+      loading="lazy">
+    </iframe>
   </div>
 </section>
 
 <footer>
-  © 勝春中藥房 Sheng Chun Herbal Medicine
+  <p>© 勝春中藥房 Sheng Chun Herbal Medicine</p>
+  <p>傳承漢方 · 調和身心 · 守護日常健康</p>
 </footer>
 
 </body>
