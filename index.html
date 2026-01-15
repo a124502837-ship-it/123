@@ -8,14 +8,10 @@
   <style>
     :root {
       --black: #0b0b0b;
-      --black-soft: #121212;
       --gold: #c9a24d;
       --gold-soft: #e6d6a3;
       --text: #eeeeee;
       --muted: #cfcfcf;
-      --line: rgba(201,162,77,.35);
-      --shadow: 0 18px 45px rgba(0,0,0,.35);
-      --radius: 12px;
     }
 
     * { box-sizing: border-box; }
@@ -23,22 +19,19 @@
 
     body {
       margin: 0;
-      /* 改成標楷體 */
-      font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", serif;
+      font-family:"標楷體","DFKai-SB","BiauKai",serif;
       background: var(--black);
       color: var(--text);
       line-height: 1.9;
     }
 
-    /* ===== 導覽列 ===== */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
       background: rgba(0,0,0,.9);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(201,162,77,.35);
       z-index: 1000;
-      backdrop-filter: blur(8px);
     }
 
     nav ul {
@@ -47,7 +40,6 @@
       padding: 14px 20px;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 26px;
     }
 
@@ -56,25 +48,8 @@
       text-decoration: none;
       letter-spacing: 2px;
       font-size: .95rem;
-      position: relative;
-      padding: 2px 0;
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      height: 2px;
-      width: 0;
-      background: var(--gold);
-      transition: width .25s ease;
-    }
-
-    nav a:hover { color: var(--gold); }
-    nav a:hover::after { width: 100%; }
-
-    /* ===== 首圖（中藥混合，無版權） ===== */
     header {
       background:
         linear-gradient(rgba(0,0,0,.66), rgba(0,0,0,.66)),
@@ -88,12 +63,11 @@
     header h1 {
       font-size: 3.1rem;
       letter-spacing: 10px;
-      margin: 0 0 16px;
+      margin-bottom: 16px;
       color: var(--gold);
     }
 
     header p {
-      margin: 0;
       font-size: 1.15rem;
       color: var(--gold-soft);
     }
@@ -108,11 +82,11 @@
       text-align: center;
       color: var(--gold);
       letter-spacing: 6px;
-      margin: 0 0 60px;
+      margin-bottom: 60px;
       font-size: 1.9rem;
     }
 
-    /* ===== 關於 ===== */
+    /* 關於勝春 */
     .about {
       background: linear-gradient(180deg, #0b0b0b, #111);
     }
@@ -121,155 +95,62 @@
       max-width: 860px;
       margin: 0 auto;
       text-align: justify;
-      font-size: 1.05rem;
+      font-size: 1.18rem; /* 放大 */
       color: #ddd;
     }
 
-    /* ===== 服務 ===== */
+    /* 服務項目 */
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(4, 1fr); /* 固定一排四個 */
       gap: 40px;
-      align-items: start;
     }
 
-    .service-sub {
-      text-align: center;
-      color: var(--gold-soft);
-      letter-spacing: 4px;
-      margin: -30px 0 50px;
-      font-size: 1rem;
-      opacity: .95;
-    }
-
-    /* 服務卡片：取消框框，保留精緻留白 */
     .card {
-      background: transparent;
-      border: none;
-      padding: 0;
       text-align: center;
-      color: inherit;
       text-decoration: none;
-      display: block;
+      color: inherit;
     }
 
-    .card h3 {
-      color: var(--gold);
-      letter-spacing: 6px;
-      margin: 14px 0 12px;
-      font-size: 1.5rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .98rem;
-    }
-
-    .card .badge {
+    .badge {
       display: inline-block;
       border: 1px solid rgba(201,162,77,.45);
       color: var(--gold-soft);
       padding: 6px 10px;
       font-size: .82rem;
       letter-spacing: 2px;
-      margin: 0 0 12px;
-      background: rgba(0,0,0,.25);
-      border-radius: 999px;
+      margin-bottom: 12px;
     }
 
-    /* hover 提示 */
-    .card:hover h3 { color: #ffd37a; }
-    .card:hover .badge { border-color: rgba(201,162,77,.85); }
+    .card h3 {
+      font-size: 1.5rem;
+      letter-spacing: 6px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
 
-    /* ===== 店家資訊（做小一點、往下放） ===== */
+    .card p {
+      color: var(--muted);
+      font-size: .98rem;
+    }
+
+    /* 店家資訊 */
     .info {
-      font-size: .95rem;
-      color: #cfcfcf;
       padding-top: 140px;
+      font-size: .95rem;
     }
 
     .info p {
       text-align: center;
       max-width: 720px;
       margin: 0 auto;
-      color: #cfcfcf;
-    }
-
-    /* ===== 表格（可填寫） ===== */
-    .form-wrap{
-      max-width: 860px;
-      margin: 42px auto 0;
-      padding: 22px 18px;
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border: 1px solid rgba(201,162,77,.22);
-      box-shadow: var(--shadow);
-    }
-
-    .form-title{
-      text-align:center;
-      color: var(--gold-soft);
-      letter-spacing: 4px;
-      margin: 0 0 18px;
-      font-size: 1.05rem;
-    }
-
-    table.form-table{
-      width:100%;
-      border-collapse: collapse;
-    }
-
-    table.form-table td{
-      padding: 10px 8px;
-      vertical-align: top;
-    }
-
-    table.form-table td.label{
-      width: 120px;
-      color: var(--gold-soft);
-      letter-spacing: 2px;
-      white-space: nowrap;
-    }
-
-    input[type="text"], input[type="tel"], textarea{
-      width:100%;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(201,162,77,.28);
-      background: rgba(0,0,0,.35);
-      color: var(--text);
-      outline: none;
-      font-family: inherit;
-      font-size: 1rem;
-    }
-
-    textarea{
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    input[type="text"]::placeholder,
-    input[type="tel"]::placeholder,
-    textarea::placeholder{
-      color: rgba(238,238,238,.55);
-    }
-
-    input[type="text"]:focus,
-    input[type="tel"]:focus,
-    textarea:focus{
-      border-color: rgba(201,162,77,.75);
-      box-shadow: 0 0 0 3px rgba(201,162,77,.12);
     }
 
     iframe {
       width: 100%;
       height: 360px;
       border: 0;
-      margin-top: 44px; /* 地圖上面留空間：表格已插入，這裡保持呼吸感 */
-      filter: grayscale(10%) contrast(105%);
-      border-radius: 10px;
-      box-shadow: var(--shadow);
+      margin-top: 44px;
     }
 
     footer {
@@ -280,16 +161,12 @@
       border-top: 1px solid rgba(201,162,77,.3);
     }
 
-    /* 避免 fixed nav 遮住錨點 */
-    [id] { scroll-margin-top: 90px; }
+    @media (max-width: 900px) {
+      .services { grid-template-columns: repeat(2, 1fr); }
+    }
 
-    @media (max-width: 600px) {
-      header { padding: 170px 16px 120px; }
-      header h1 { font-size: 2.4rem; letter-spacing: 6px; }
-      nav ul { gap: 18px; }
-      section { padding: 86px 16px; }
-      .info { padding-top: 120px; }
-      table.form-table td.label{ width: 88px; }
+    @media (max-width: 500px) {
+      .services { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -320,28 +197,27 @@
 
 <section id="service">
   <h2>服務項目</h2>
-  <div class="service-sub">科學中藥代理銷售</div>
 
   <div class="services">
-    <a class="card" href="materials.html" aria-label="前往 道地藥材">
+    <a class="card" href="materials.html">
       <div class="badge">嚴選藥材</div>
       <h3>道地藥材</h3>
       <p>嚴選來源清楚之中藥材，品質穩定、用藥安心。</p>
     </a>
 
-    <a class="card" href="consult.html" aria-label="前往 中藥材諮詢">
+    <a class="card" href="consult.html">
       <div class="badge">專業建議</div>
       <h3>中藥材諮詢</h3>
       <p>協助了解藥材特性與使用方式，依需求提供合適建議。</p>
     </a>
 
-    <a class="card" href="tea.html" aria-label="前往 養生茶飲">
+    <a class="card" href="tea.html">
       <div class="badge">日常調養</div>
       <h3>養生茶飲</h3>
       <p>漢方溫潤好入口，適合日常保健與季節調理。</p>
     </a>
 
-    <a class="card" href="agents.html" aria-label="前往 各式科學中藥代理">
+    <a class="card" href="agents.html">
       <div class="badge">代理資訊</div>
       <h3>各式科學中藥代理</h3>
       <p>提供科學中藥代理與相關品項說明。</p>
@@ -358,31 +234,9 @@
     電話｜06-590-6735
   </p>
 
-  <!-- 地圖上面留空間：加入可填寫表格 -->
-  <div class="form-wrap">
-    <div class="form-title">線上諮詢表格</div>
-    <form>
-      <table class="form-table" aria-label="線上諮詢表格">
-        <tr>
-          <td class="label">稱呼</td>
-          <td><input type="text" name="name" placeholder="請輸入稱呼" /></td>
-        </tr>
-        <tr>
-          <td class="label">電話</td>
-          <td><input type="tel" name="phone" placeholder="請輸入電話" /></td>
-        </tr>
-        <tr>
-          <td class="label">問題</td>
-          <td><textarea name="question" placeholder="請簡述您的問題"></textarea></td>
-        </tr>
-      </table>
-    </form>
-  </div>
-
   <iframe
     src="https://www.google.com/maps?q=台南市新化區中正路369巷42號之1&output=embed"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
+    loading="lazy">
   </iframe>
 </section>
 
@@ -392,4 +246,3 @@
 
 </body>
 </html>
-
