@@ -99,7 +99,7 @@
       color: #ddd;
     }
 
-    /* 服務項目：固定一排四個（桌機） */
+    /* 服務項目 */
     .services {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -107,14 +107,12 @@
       align-items: stretch;
     }
 
-    /* 每格做成等高 + 文字區塊高度一致 */
     .card {
       text-align: center;
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       min-height: 220px;
     }
 
@@ -132,33 +130,28 @@
       font-size: 1.5rem;
       letter-spacing: 6px;
       color: var(--gold);
-      margin: 0 0 12px;
+      margin-bottom: 12px;
       line-height: 1.25;
     }
 
-    /* ✅ 各式科學中藥代理：強制一行 */
     .card h3.one-line {
       white-space: nowrap;
-      letter-spacing: 3px; /* 稍收，避免爆版 */
-      font-size: 1.42rem;  /* 小一點點但仍偏大 */
+      letter-spacing: 3px;
+      font-size: 1.42rem;
     }
 
-    /* ✅ 四格說明文字高度一致 */
+    /* 🔥 放大一個規格 */
     .card p {
+      font-size: 1.08rem;
+      line-height: 1.85;
       color: var(--muted);
-      font-size: .98rem;
-      line-height: 1.75;
       margin: 0;
-      min-height: 3.5em;  /* 讓四格文字區高度一致 */
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
+      min-height: 3.5em;
     }
 
     /* 店家資訊 */
     .info {
       padding-top: 140px;
-      font-size: .95rem;
     }
 
     .info p {
@@ -167,12 +160,17 @@
       margin: 0 auto;
     }
 
-    /* ✅ 時間字體放大 2 個規格 */
-    .time-big{
-      display:inline-block;
-      font-size: 1.25rem; /* 原本約 .95～1rem，這裡提升兩階 */
+    .time-big {
+      display: inline-block;
+      font-size: 1.25rem;
       color: var(--gold-soft);
-      letter-spacing: 1px;
+    }
+
+    /* 🔥 地址也放大 */
+    .addr-big {
+      display: inline-block;
+      font-size: 1.15rem;
+      color: #eee;
     }
 
     iframe {
@@ -192,7 +190,7 @@
 
     @media (max-width: 900px) {
       .services { grid-template-columns: repeat(2, 1fr); }
-      .card h3.one-line { white-space: normal; } /* 平板允許換行避免擠 */
+      .card h3.one-line { white-space: normal; }
     }
 
     @media (max-width: 500px) {
@@ -259,7 +257,7 @@
   <h2>店家資訊</h2>
   <p>
     <span class="time-big">營業時間｜每日 07:30－19:00<br>週日下午／週一公休</span><br><br>
-    地址｜台南市新化區中正路369巷42號之1<br>
+    <span class="addr-big">地址｜台南市新化區中正路369巷42號之1</span><br>
     電話｜06-590-6735
   </p>
 
