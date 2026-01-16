@@ -6,271 +6,186 @@
   <title>勝春中藥房｜黑金漢方官網</title>
 
   <style>
-    :root {
-      --black: #0b0b0b;
-      --gold: #c9a24d;
-      --gold-soft: #e6d6a3;
-      --text: #eeeeee;
-      --muted: #cfcfcf;
+    :root{
+      --black:#0b0b0b;
+      --gold:#c9a24d;
+      --gold-soft:#e6d6a3;
+      --text:#eeeeee;
+      --muted:#cfcfcf;
+      --line:rgba(201,162,77,.35);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
 
-    body {
-      margin: 0;
+    body{
+      margin:0;
       font-family:"標楷體","DFKai-SB","BiauKai",serif;
-      background: var(--black);
-      color: var(--text);
-      line-height: 1.9;
+      background:var(--black);
+      color:var(--text);
+      line-height:1.9;
     }
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0,0,0,.9);
-      border-bottom: 1px solid rgba(201,162,77,.35);
-      z-index: 1000;
+    /* ===== 導覽列：字更大、間距更開 ===== */
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(0,0,0,.9);
+      border-bottom:1px solid var(--line);
+      z-index:1000;
+      backdrop-filter: blur(8px);
     }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 14px 20px;
-      display: flex;
-      justify-content: center;
-      gap: 26px;
+    nav ul{
+      list-style:none;
+      margin:0;
+      padding:16px 22px;
+      display:flex;
+      justify-content:center;
+      gap:48px;              /* 分開一點 */
+      flex-wrap:wrap;
     }
-
-    nav a {
-      color: var(--gold-soft);
-      text-decoration: none;
-      letter-spacing: 2px;
-      font-size: .95rem;
+    nav a{
+      color:var(--gold-soft);
+      text-decoration:none;
+      letter-spacing:3px;
+      font-size:1.15rem;     /* 大一點 */
+      padding:4px 2px;
+      position:relative;
     }
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0; right:0;
+      bottom:-6px;
+      height:2px;
+      width:0;
+      margin:auto;
+      background:var(--gold);
+      transition:width .25s ease;
+    }
+    nav a:hover{color:var(--gold);}
+    nav a:hover::after{width:100%;}
 
-    header {
+    /* ===== 首圖 ===== */
+    header{
       background:
         linear-gradient(rgba(0,0,0,.66), rgba(0,0,0,.66)),
         url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/A_Bag_Chinese_herbal_drugs_and_Chinese_candies.jpg/1280px-A_Bag_Chinese_herbal_drugs_and_Chinese_candies.jpg");
-      background-size: cover;
-      background-position: center;
-      padding: 200px 20px 150px;
-      text-align: center;
+      background-size:cover;
+      background-position:center;
+      padding:200px 20px 150px;
+      text-align:center;
+    }
+    header h1{
+      font-size:3.1rem;
+      letter-spacing:10px;
+      margin:0 0 16px;
+      color:var(--gold);
+    }
+    header p{
+      margin:0;
+      font-size:1.15rem;
+      color:var(--gold-soft);
+      letter-spacing:2px;
     }
 
-    header h1 {
-      font-size: 3.1rem;
-      letter-spacing: 10px;
-      margin-bottom: 16px;
-      color: var(--gold);
+    section{
+      max-width:1100px;
+      margin:auto;
+      padding:100px 20px;
+    }
+    h2{
+      text-align:center;
+      color:var(--gold);
+      letter-spacing:6px;
+      margin:0 0 60px;
+      font-size:1.9rem;
     }
 
-    header p {
-      font-size: 1.15rem;
-      color: var(--gold-soft);
+    /* ===== 關於 ===== */
+    .about{
+      background:linear-gradient(180deg,#0b0b0b,#111);
+    }
+    .about p{
+      max-width:860px;
+      margin:0 auto;
+      text-align:justify;
+      font-size:1.18rem; /* 你之前要大一點的版本 */
+      color:#ddd;
     }
 
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 100px 20px;
+    /* ===== 服務項目：一排四個 ===== */
+    .services{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:40px;
+      align-items:stretch;
     }
 
-    h2 {
-      text-align: center;
-      color: var(--gold);
-      letter-spacing: 6px;
-      margin-bottom: 60px;
-      font-size: 1.9rem;
+    .card{
+      text-align:center;
+      text-decoration:none;
+      color:inherit;
+      display:flex;
+      flex-direction:column;
+      min-height:220px;
     }
 
-    /* 關於勝春 */
-    .about {
-      background: linear-gradient(180deg, #0b0b0b, #111);
+    .badge{
+      display:inline-block;
+      border:1px solid rgba(201,162,77,.45);
+      color:var(--gold-soft);
+      padding:6px 10px;
+      font-size:.92rem;     /* badge 也稍微大一點 */
+      letter-spacing:2px;
+      margin:0 auto 12px;
+      background:rgba(0,0,0,.20);
     }
 
-    .about p {
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: justify;
-      font-size: 1.18rem;
-      color: #ddd;
+    .card h3{
+      font-size:1.5rem;
+      letter-spacing:6px;
+      color:var(--gold);
+      margin:0 0 12px;
+      line-height:1.25;
     }
 
-    /* 服務項目 */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      align-items: stretch;
+    /* 各式科學中藥代理：標題一行 */
+    .card h3.one-line{
+      white-space:nowrap;
+      letter-spacing:3px;
+      font-size:1.42rem;
     }
 
-    .card {
-      text-align: center;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      min-height: 220px;
+    /* ✅ 服務項目下面小框內文：大 2 個規格 */
+    .card p{
+      color:var(--muted);
+      font-size:1.22rem;    /* 原本約 1.0 左右，這裡拉到大兩階 */
+      line-height:1.85;
+      margin:0;
+      min-height:3.7em;     /* 四格看起來整齊 */
     }
 
-    .badge {
-      display: inline-block;
-      border: 1px solid rgba(201,162,77,.45);
-      color: var(--gold-soft);
-      padding: 6px 10px;
-      font-size: .82rem;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
+    /* ===== 店家資訊：營業時間 + 地址 字體大小/顏色一致 ===== */
+    .info{
+      padding-top:140px;
+    }
+    .info p{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto;
+      font-size:1.18rem;
+      line-height:2.05;
+      color:#eee;
+    }
+    .info .highlight{
+      display:inline-block;
+      font-size:1.28rem;    /* 時間 & 地址同一規格 */
+      color:var(--gold-soft);/* 顏色也一樣 */
+      letter-spacing:1px;
     }
 
-    .card h3 {
-      font-size: 1.5rem;
-      letter-spacing: 6px;
-      color: var(--gold);
-      margin-bottom: 12px;
-      line-height: 1.25;
-    }
-
-    .card h3.one-line {
-      white-space: nowrap;
-      letter-spacing: 3px;
-      font-size: 1.42rem;
-    }
-
-    /* 🔥 放大一個規格 */
-    .card p {
-      font-size: 1.08rem;
-      line-height: 1.85;
-      color: var(--muted);
-      margin: 0;
-      min-height: 3.5em;
-    }
-
-    /* 店家資訊 */
-    .info {
-      padding-top: 140px;
-    }
-
-    .info p {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .time-big {
-      display: inline-block;
-      font-size: 1.25rem;
-      color: var(--gold-soft);
-    }
-
-    /* 🔥 地址也放大 */
-    .addr-big {
-      display: inline-block;
-      font-size: 1.15rem;
-      color: #eee;
-    }
-
-    iframe {
-      width: 100%;
-      height: 360px;
-      border: 0;
-      margin-top: 44px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: .85rem;
-      color: #777;
-      border-top: 1px solid rgba(201,162,77,.3);
-    }
-
-    @media (max-width: 900px) {
-      .services { grid-template-columns: repeat(2, 1fr); }
-      .card h3.one-line { white-space: normal; }
-    }
-
-    @media (max-width: 500px) {
-      .services { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-
-<body>
-
-<nav>
-  <ul>
-    <li><a href="#about">關於勝春</a></li>
-    <li><a href="#service">服務項目</a></li>
-    <li><a href="#info">店家資訊</a></li>
-  </ul>
-</nav>
-
-<header>
-  <h1>勝春中藥房</h1>
-  <p>誠信・專業・用心的漢方傳承</p>
-</header>
-
-<section id="about" class="about">
-  <h2>關於勝春</h2>
-  <p>
-    勝春中藥房，承載著歲月淬鍊的漢方智慧，以「誠信、專業、用心」為核心精神，長年深耕在地，守護每一位顧客的健康。
-    嚴選道地藥材，來源清楚、品質把關嚴謹，從調理體質、日常保健到客製化配方，皆由經驗豐富的中藥師親自把關。
-    勝春相信，中藥不只是治療，更是一種順應自然、平衡身心的生活哲學。
-  </p>
-</section>
-
-<section id="service">
-  <h2>服務項目</h2>
-
-  <div class="services">
-    <a class="card" href="materials.html">
-      <div class="badge">嚴選藥材</div>
-      <h3>道地藥材</h3>
-      <p>嚴選來源清楚之中藥材，品質穩定、用藥安心。</p>
-    </a>
-
-    <a class="card" href="consult.html">
-      <div class="badge">專業建議</div>
-      <h3>中藥材諮詢</h3>
-      <p>協助了解藥材特性與使用方式，依需求提供合適建議。</p>
-    </a>
-
-    <a class="card" href="tea.html">
-      <div class="badge">日常調養</div>
-      <h3>養生茶飲</h3>
-      <p>漢方溫潤好入口，適合日常保健與季節調理。</p>
-    </a>
-
-    <a class="card" href="agents.html">
-      <div class="badge">代理資訊</div>
-      <h3 class="one-line">各式科學中藥代理</h3>
-      <p>提供科學中藥代理與相關品項說明。</p>
-    </a>
-  </div>
-</section>
-
-<section id="info" class="info">
-  <h2>店家資訊</h2>
-  <p>
-    <span class="time-big">營業時間｜每日 07:30－19:00<br>週日下午／週一公休</span><br><br>
-    <span class="addr-big">地址｜台南市新化區中正路369巷42號之1</span><br>
-    電話｜06-590-6735
-  </p>
-
-  <iframe
-    src="https://www.google.com/maps?q=台南市新化區中正路369巷42號之1&output=embed"
-    loading="lazy">
-  </iframe>
-</section>
-
-<footer>
-  © 勝春中藥房 Sheng Chun Traditional Chinese Medicine
-</footer>
-
-</body>
-</html>
-
+    /* 表單（你原本就有） */
+    .contact-form{
+      max-wid
