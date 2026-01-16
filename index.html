@@ -188,4 +188,149 @@
 
     /* 表單（你原本就有） */
     .contact-form{
-      max-wid
+      max-width:720px;
+      margin:0 auto 60px;
+      background:rgba(255,255,255,.02);
+      padding:28px;
+      border:1px solid rgba(201,162,77,.25);
+    }
+    .contact-form label{
+      color:var(--gold-soft);
+      letter-spacing:2px;
+      font-size:1.05rem;
+    }
+    .contact-form input,
+    .contact-form textarea{
+      width:100%;
+      padding:10px;
+      margin-top:6px;
+      background:#000;
+      border:1px solid rgba(201,162,77,.35);
+      color:#fff;
+      font-family:inherit;
+      font-size:1.05rem;
+    }
+
+    iframe{
+      width:100%;
+      height:360px;
+      border:0;
+      margin-top:44px;
+      filter:grayscale(10%) contrast(105%);
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      font-size:.9rem;
+      color:#777;
+      border-top:1px solid rgba(201,162,77,.3);
+    }
+
+    /* 避免 nav 遮住錨點 */
+    [id]{scroll-margin-top:100px;}
+
+    @media (max-width: 900px){
+      .services{grid-template-columns:repeat(2, 1fr);}
+      .card h3.one-line{white-space:normal;}
+      nav ul{gap:26px;}
+    }
+    @media (max-width: 500px){
+      .services{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <ul>
+    <li><a href="#about">關於勝春</a></li>
+    <li><a href="#service">服務項目</a></li>
+    <li><a href="#info">店家資訊</a></li>
+  </ul>
+</nav>
+
+<header>
+  <h1>勝春中藥房</h1>
+  <p>誠信・專業・用心的漢方傳承</p>
+</header>
+
+<section id="about" class="about">
+  <h2>關於勝春</h2>
+  <p>
+    勝春中藥房，承載著歲月淬鍊的漢方智慧，以「誠信、專業、用心」為核心精神，長年深耕在地，守護每一位顧客的健康。
+    嚴選道地藥材，來源清楚、品質把關嚴謹，從調理體質、日常保健到客製化配方，皆由經驗豐富的中藥師親自把關。
+    勝春相信，中藥不只是治療，更是一種順應自然、平衡身心的生活哲學。
+  </p>
+</section>
+
+<section id="service">
+  <h2>服務項目</h2>
+
+  <div class="services">
+    <!-- ✅ 已經把超連結放進去：點整塊會跳頁 -->
+    <a class="card" href="materials.html" aria-label="前往 道地藥材">
+      <div class="badge">嚴選藥材</div>
+      <h3>道地藥材</h3>
+      <p>嚴選來源清楚之中藥材，品質穩定、用藥安心。</p>
+    </a>
+
+    <a class="card" href="consult.html" aria-label="前往 中藥材諮詢">
+      <div class="badge">專業建議</div>
+      <h3>中藥材諮詢</h3>
+      <p>協助了解藥材特性與使用方式，依需求提供合適建議。</p>
+    </a>
+
+    <a class="card" href="tea.html" aria-label="前往 養生茶飲">
+      <div class="badge">日常調養</div>
+      <h3>養生茶飲</h3>
+      <p>漢方溫潤好入口，適合日常保健與季節調理。</p>
+    </a>
+
+    <a class="card" href="agents.html" aria-label="前往 各式科學中藥代理">
+      <div class="badge">代理資訊</div>
+      <h3 class="one-line">各式科學中藥代理</h3>
+      <p>提供科學中藥代理與相關品項說明。</p>
+    </a>
+  </div>
+</section>
+
+<section id="info" class="info">
+  <h2>店家資訊</h2>
+  <p>
+    <span class="highlight">營業時間｜每日 07:30－19:00<br>週日下午／週一公休</span><br><br>
+    <span class="highlight">地址｜台南市新化區中正路369巷42號之1</span><br>
+    電話｜06-590-6735
+  </p>
+
+  <div class="contact-form">
+    <form>
+      <div style="margin-bottom:16px;">
+        <label>稱呼</label><br>
+        <input type="text">
+      </div>
+      <div style="margin-bottom:16px;">
+        <label>電話</label><br>
+        <input type="tel">
+      </div>
+      <div style="margin-bottom:16px;">
+        <label>問題</label><br>
+        <textarea rows="4"></textarea>
+      </div>
+    </form>
+  </div>
+
+  <iframe
+    src="https://www.google.com/maps?q=台南市新化區中正路369巷42號之1&output=embed"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</section>
+
+<footer>
+  © 勝春中藥房 Sheng Chun Traditional Chinese Medicine
+</footer>
+
+</body>
+</html>
