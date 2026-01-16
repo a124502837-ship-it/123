@@ -5,19 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>道地藥材｜勝春中藥房</title>
   <style>
-    body{margin:0;font-family:"標楷體","DFKai-SB","BiauKai",serif;background:#0b0b0b;color:#eee;line-height:1.9;}
-    header{padding:140px 20px 80px;text-align:center;border-bottom:1px solid rgba(201,162,77,.35);}
-    h1{margin:0;color:#c9a24d;letter-spacing:6px;font-size:2.2rem;}
-    section{max-width:900px;margin:0 auto;padding:70px 20px;font-size:1.22rem;color:#ddd;}
-    a{color:#e6d6a3;text-decoration:none;border:1px solid rgba(201,162,77,.35);padding:10px 16px;display:inline-block;margin-top:28px;}
+    :root{
+      --bg:#0b0b0b; --gold:#c9a24d; --goldSoft:#e6d6a3;
+      --text:#eeeeee; --muted:#d0d0d0; --line:rgba(201,162,77,.28);
+      --shadow:0 18px 55px rgba(0,0,0,.55); --radius:18px;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:"標楷體","DFKai-SB","BiauKai",serif;
+      background:radial-gradient(1100px 720px at 50% -10%, rgba(201,162,77,.10), transparent 56%), var(--bg);
+      color:var(--text);
+      line-height:1.95;
+    }
+    header{
+      background:linear-gradient(rgba(0,0,0,.78), rgba(0,0,0,.78));
+      padding:140px 18px 90px;
+      text-align:center;
+      border-bottom:1px solid var(--line);
+    }
+    .plaque{
+      max-width:860px; margin:0 auto;
+      padding:22px 18px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.01));
+      border:1px solid rgba(201,162,77,.22);
+      box-shadow:var(--shadow);
+    }
+    h1{margin:0;color:var(--gold);letter-spacing:8px;font-size:2.35rem;}
+    .sub{margin-top:10px;color:var(--goldSoft);letter-spacing:2px;font-size:1.10rem;}
+    main{max-width:920px;margin:0 auto;padding:78px 18px;}
+    .card{
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+      border:1px solid rgba(201,162,77,.16);
+      box-shadow:var(--shadow);
+      padding:30px 22px;
+    }
+    .card p{margin:0;color:#e0e0e0;font-size:1.22rem;text-align:justify;}
+    .actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;}
+    a.btn{
+      text-decoration:none;color:var(--goldSoft);letter-spacing:2px;
+      border:1px solid rgba(201,162,77,.35);
+      padding:10px 16px;border-radius:999px;
+      background:rgba(0,0,0,.18);
+      transition:transform .15s ease, border-color .15s ease, color .15s ease;
+    }
+    a.btn:hover{transform:translateY(-1px);border-color:rgba(201,162,77,.75);color:var(--gold);}
   </style>
 </head>
 <body>
-  <header><h1>道地藥材</h1></header>
-  <section>
-    勝春中藥房嚴選來源清楚之中藥材，重視產地、炮製與保存，確保品質穩定、用藥安心。若有需求，可由中藥師依體質與目的提供合適建議。
-    <br>
-    <a href="index.html">← 返回首頁</a>
-  </section>
+  <header>
+    <div class="plaque">
+      <h1>道地藥材</h1>
+      <div class="sub">嚴選來源清楚・品質把關</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <p>
+        勝春中藥房重視藥材產地、炮製與保存流程，嚴選來源清楚之中藥材，確保品質穩定、用藥安心。
+        如有調理需求，亦可由中藥師依個人狀況提供合適方向與建議。
+      </p>
+
+      <div class="actions">
+        <a class="btn" href="index.html">← 返回首頁</a>
+        <a class="btn" href="consult.html">前往 中藥材諮詢 →</a>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
